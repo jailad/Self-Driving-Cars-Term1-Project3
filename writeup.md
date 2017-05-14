@@ -34,7 +34,7 @@
 
 ---
 
-###Objective  <a name="objective"></a> : 
+## Objective  <a name="objective"></a> : 
 
 * Design, train and validate a model that predicts a steering angle from image data - model.h5 .
 * Use the model to drive the vehicle autonomously around the first track in the simulator. The vehicle should remain on the road for an entire loop around the track.
@@ -42,7 +42,7 @@
 
 ---
 
-###Key File(s) <a name="keyfiles"></a> :
+## Key File(s) <a name="keyfiles"></a> :
 
 * [readme.md](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/README.md) - The accompanying Readme file, with setup details.
 * [model.ipynb](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/model.ipynb) - [Jupyter](http://jupyter.org/) notebook used to create and train the model.
@@ -53,7 +53,7 @@
 <BR><BR>
 ---
 
-###Other File(s) <a name="otherfiles"></a> :
+## Other File(s) <a name="otherfiles"></a> :
 
 * [Term1Project3BehaviorCloning.ipynb](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/Term1Project3BehaviorCloning.ipynb) - the main Jupyter notebook which was used to experiment with various model architectures, and which was also used to perform data distribution analysis and balancing. This is the main 'parent' notebook which was used to complete the project, and from this, the model.ipynb was derived.
 
@@ -61,11 +61,11 @@
 <BR><BR>
 ---
 
-###Detailed Description of Solution Approach <a name="da"></a> :
+## Detailed Description of Solution Approach <a name="da"></a> :
 
 <BR>
 
-#### - Pick five different CNN architectures for evaluation. <a name="da1"></a>
+### - Pick five different CNN architectures for evaluation. <a name="da1"></a>
 * The problem statement can be boiled down to an image recognition / regression task in which for a given image, we need to predict the ideal value of the steering angle. 
 * [Convolutional neural network(s)](http://cs231n.github.io/convolutional-networks/) - CNN are the networks of choice for image recognition tasks, therefore I decided to use this overall architecture for this problem. In particular, in an image the nearby pixels are strongly correlated with each other, but the pixels farther from each other are not that significantly correlated with each other. This allows for sharing weights ( parameters ) between nearby pixels, and this is a property which CNNs are able to exploit well.
 * Within CNNs we can have many different architecture(s), so I decided to select an initial set of five different CNNs for evaluation:
@@ -78,7 +78,7 @@
 
 <BR>
 
-#### - Implementing the architectures <a name="da2"></a>
+### - Implementing the architectures <a name="da2"></a>
 * I chose [Keras](https://keras.io/) with a TensorFlow backend.
 * Reasons to do this are primarily because Keras supports constructing deep network(s) with much less code than TensorFlow.
 * At the same time, with a Tensorflow back-end, it allows us to still train on GPUs which is one of the strengths of Tensorflow.
@@ -90,13 +90,13 @@
 
 <BR>
 
-#### - Do quick end-to-end validation - training, validation, testing, driving. <a name="da3"></a>
+### - Do quick end-to-end validation - training, validation, testing, driving. <a name="da3"></a>
 * Created a [simple CNN model architecture](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/Term1Project3BehaviorCloning.py#L170-L198), trained it over a small subset of the data, generated a model.h5 file, then launched the Simulator, and tried to drive the model with this initial model. This was done as a 'de-risking' / 'end-to-end' validation approach, so that I basically tested the complete chain of tasks from model training to model driving. This was done because I did not want to be in a situation where I had a reasonably trained model, which was not able to drive because of some quirks in the complete chain. 
 * The car does not drive well at this stage, which is expected, but at least we have proven the end-to-end chain at this stage.
 
 <BR>
 
-#### - Evaluate different CNN architectures <a name="da4"></a>
+### - Evaluate different CNN architectures <a name="da4"></a>
 * To rapidly evaluate the model(s), I did the initial evaluation with a few epochs.
 * To perform this evaluation, I used the sample data provided as part of the starter project. The training data was shuffled for each epoch to ensure that the learning was reasonably independent of the ordering of data.
 * I made sure that all the models were subjected to the same [preprocessing](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/Term1Project3BehaviorCloning.py#L162-L168) and the same amount of [dropout](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/Term1Project3BehaviorCloning.py#L59). 
@@ -114,7 +114,7 @@
 
 <BR>
 
-#### - Select a CNN architecture for the project <a name="da5"></a>
+### - Select a CNN architecture for the project <a name="da5"></a>
 * With the above specified evaluation parameter(s), I shortened the list of models under evaluation from five to two - the modified Nvidia model, and my model from a previous project. 
 * I believe, that given sufficient training cycles, the CommaAI model, and the Inception V3 model would achieve or exceed the desired levels of accuracy.
 * However, for my considerations, I was able to achieve the desired initial level(s) of performance with the modified Nvidia model, and with my model from a previous project, for much less memory ( 62.5 MB - model.h5 - Nvidia versus 500 MB+ - CommaAI model ) and in less time ( approx 400 seconds per epoch training time for Nvidia model, versus 1000 seconds per epoch for the CommaAI model. )
@@ -135,7 +135,7 @@
 
 <BR>
 
-#### - Visualize the final CNN architecture. <a name="da6"></a>
+### - Visualize the final CNN architecture. <a name="da6"></a>
 
 <BR>
 
@@ -143,7 +143,7 @@
 
 <BR>
 
-#### - Data Analysis and Visualization <a name="da7"></a>
+### - Data Analysis and Visualization <a name="da7"></a>
 
 
 * The Data recorder produces a CSV file with the following columns, path to image from center camera, left camera, right camera, [ground truth](https://en.wikipedia.org/wiki/Ground_truth) values for steering angle, throttle, brake and speed.
@@ -174,7 +174,7 @@
 
 <BR><BR>
 
-#### - Data Summary <a name="da8"></a>
+### - Data Summary <a name="da8"></a>
 
 * From the above Steering angle Histogram, a few specific conclusions can be made:
 
@@ -184,7 +184,7 @@
 
 <BR>
 
-#### - Data balancing strategy <a name="da9"></a>
+### - Data balancing strategy <a name="da9"></a>
 
 * The data summary above helps in preparing a data balancing strategy as follows:
 
@@ -196,7 +196,7 @@
 
 <BR>
 
-#### - Data preprocessing  <a name="da10"></a>
+### - Data preprocessing  <a name="da10"></a>
 * [Data Normalization](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/Term1Project3BehaviorCloning.py#L166)
     * Data normalization is a process designed to help a network achieve convergence faster. Depending upon the type of problem, the type of normalization can vary. For [images](https://en.wikipedia.org/wiki/Normalization_(image_processing)), this can be performed by ensuring that the pixel intensities have zero mean, and unit variance. This was implemented as a [Keras Lambda layer]. This helps in reducing the number of epochs needed to train a neural network to an acceptable level of performance. 
 * [Region of interest selection](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/Term1Project3BehaviorCloning.py#L165)
@@ -205,7 +205,7 @@
 
 <BR><BR>
 
-#### - Data Loading <a name="da11"></a>
+### - Data Loading <a name="da11"></a>
 * When I tried to load the images using paths from the CSV file(s), there was an extra space in some of the paths which led to failure, so those had to be [stripped out](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/Term1Project3BehaviorCloning.py#L543-L545).
 * Other than this, when recording data, the image paths recorded were absolute, whereas in the reference data set, the image paths, the recorded paths were relative. So, this had to be [accounted for](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/Term1Project3BehaviorCloning.py#L443-L451).
 * Finally, the sample data set had headers, whereas the data set generated while driving the car on the simulator did not have headers, which had to be [accounted for](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/Term1Project3BehaviorCloning.py#L535-L540) as well.
@@ -223,7 +223,7 @@
 
 <BR><BR>
 
-#### - Training and evaluation <a name="da12"></a>
+### - Training and evaluation <a name="da12"></a>
 * For the early evaluation, I had set dropout to 0, however for the actual training and evaluation, I set dropout value to 0.2, which meant that during the training phase, 20% of the activations would be randomly ignored. This was done to prevent overfitting.
 * The initial training was performed for images captured from the central camera with the balanced data set described above. 
 * Initial number of epochs were around 5.
@@ -234,7 +234,7 @@
 
 <BR><BR>
 
-#### - Center driving and Off-center recovery practice. <a name="da13"></a>
+### - Center driving and Off-center recovery practice. <a name="da13"></a>
 
 * To resolve the above issues, I incorporated left camera data, and right camera data. Additionally, I generated a small [offset](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/Term1Project3BehaviorCloning.py#L554-L555) value for these camera values as well ( positive for left camera, and negative for right camera). The intuition for this was that from the left camera, the left lane appeared to be closer ( relative to viewing the left lane from the center camera ), and we wanted to give the car a 'tendency' to increase the distance from the left lane when we got too close to it. Similarly, when we are looking at an image from the right camera, the right lane will appear to be close ( relative to right lane distance from center camera), and we want the car to increase the distance from the right lane. After experimentation and validation, I found that an offset value of 0.01 worked well in improving car's off-center recovery characteristics.
 * I also did additional training by doing and recording recovery laps and training the model on this additional data. 
@@ -253,7 +253,7 @@
 <BR><BR>
 ---
 
-###Conclusion <a name="conc"></a> :
+## Conclusion <a name="conc"></a> :
 
 * At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road. 
 * The model was trained at 9mph, however, it is able to drive itself upto 25 mph.

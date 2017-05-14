@@ -40,7 +40,7 @@
 
 ---
 
-###Objective  <a name="objective"></a> : 
+## Objective  <a name="objective"></a> : 
 
 * Use the [simulator](https://github.com/udacity/self-driving-car-sim) to collect data of good driving behavior. 
 * Design, train and validate a model that predicts a steering angle from image data - [model.h5](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/model.h5) .
@@ -49,23 +49,23 @@
 
 ---
 
-###Result videos <a name="resultvideos"></a> :
+## Result videos <a name="resultvideos"></a> :
 
 * The following videos are as captured during autonomous driving by my trained model. ( model.h5 )
 
-#### - Drivers' perspective <a name="resultvideos1"></a> :
+### - Drivers' perspective <a name="resultvideos1"></a> :
 
 [![Drivers' perspective](http://i.imgur.com/zJLOHPq.jpg)](https://www.youtube.com/watch?v=yzjdvTPG86Y "Drivers' perspective")
 
 <BR><BR>
 
-#### - A behind the car perspective <a name="resultvideos2"></a> :
+### - A behind the car perspective <a name="resultvideos2"></a> :
 
 [!['Behind the car' perspective](http://i.imgur.com/YutMA4t.jpg)](https://www.youtube.com/watch?v=PDhiD3CyBcM "Behind the car perspective")
 
 <BR><BR>
 
-#### - A mandatory Remixed version of the above video ! <a name="resultvideos3"></a> :
+### - A mandatory Remixed version of the above video ! <a name="resultvideos3"></a> :
  
 [!['Behind the car' perspective](http://i.imgur.com/noZKpqd.jpg)](https://www.youtube.com/watch?v=6fGMyVC2dEs "Remixed version of the above video")
 
@@ -73,7 +73,7 @@
 
 ---
 
-###Pre-Requisites / Setup / Dependencies <a name="prereq"></a> : 
+## Pre-Requisites / Setup / Dependencies <a name="prereq"></a> : 
 
 * [Term1 - starter kit](https://github.com/udacity/CarND-Term1-Starter-Kit/blob/master/README.md)
 
@@ -83,13 +83,13 @@
 <BR><BR>
 ---
 
-###A note on using GPUs for training <a name="gpu"></a> : 
+## A note on using GPUs for training <a name="gpu"></a> : 
 
 * With regards to [Amazon P2 GPU](https://aws.amazon.com/ec2/instance-types/p2/) instances, I was able to get good results with my local workstation because of which I did not setup the Amazon P2 instances for this project, though I have used it in the past for model training. There are quite a pre-built Amazon AMIs which contain TensorFlow, Keras and related libraries installed which can be used for experimentation on Amazon. [This](https://github.com/ritchieng/tensorflow-aws-ami) is an example of such an AMI. [Here](http://course.fast.ai/lessons/aws.html) is another useful resource on how to setup AWS P2 GPU instances. 
 <BR><BR>
 ---
 
-###Packages used to build the pipeline ( model.ipynb ) <a name="packages"></a> : 
+## Packages used to build the pipeline ( model.ipynb ) <a name="packages"></a> : 
 
 * [Keras](https://keras.io/) - 1.2.1  ( with [Tensorflow](https://www.tensorflow.org/) backend )
 * OpenCV - 3.1.0
@@ -101,7 +101,7 @@
 <BR><BR>
 ---
 
-###Key File(s) <a name="keyfiles"></a> :
+## Key File(s) <a name="keyfiles"></a> :
 
 * [model.ipynb](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/model.ipynb) - [Jupyter](http://jupyter.org/) notebook used to create and train the model.
 * [drive.py](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/drive.py) - Script to drive the car.
@@ -111,7 +111,7 @@
 <BR><BR>
 ---
 
-###Other File(s) <a name="otherfiles"></a> :
+## Other File(s) <a name="otherfiles"></a> :
 
 * [Term1Project3BehaviorCloning.ipynb](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/Term1Project3BehaviorCloning.ipynb) - the main Jupyter notebook which was used to experiment with various model architectures, and which was also used to perform data distribution analysis and balancing. This is the main 'parent' notebook which was used to complete the project, and from this, the model.ipynb was derived.
 
@@ -119,31 +119,31 @@
 <BR><BR>
 ---
 
-###High level overview of approach <a name="hla"></a> :
+## High level overview of approach <a name="hla"></a> :
 
 * For each of the steps below, the details are provided within the writeup.md file.
 
 <BR>
 
-#### - Pick five different CNN architectures for evaluation. <a name="hla2"></a>
+### - Pick five different CNN architectures for evaluation. <a name="hla2"></a>
 
 * I selected five initial architectures for implementing this problem.
 
 <BR>
 
-#### - Implementing the architectures <a name="hla3"></a>
+### - Implementing the architectures <a name="hla3"></a>
 
 * The implementation platform chosen was Keras ( w/ Tensorflow backend ).
 
 <BR>
 
-#### - Do quick end-to-end validation - training, validation, testing, driving. <a name="hla1"></a>
+### - Do quick end-to-end validation - training, validation, testing, driving. <a name="hla1"></a>
 
 * This was done from a risk mitigation perspective, to prove out the end-to-end pipeline up front.
 
 <BR>
 
-#### - Evaluate different CNN architectures <a name="hla4"></a>
+### - Evaluate different CNN architectures <a name="hla4"></a>
 *  The above selected models were competetively evaluated against each other.
 *  Evaluation parameter(s):
     * Training accuracy.
@@ -155,13 +155,13 @@
 
 <BR>
 
-#### - Select a CNN architecture for the project <a name="hla5"></a>
+### - Select a CNN architecture for the project <a name="hla5"></a>
 
 * In this step, the final CNN architecture was selected for this project.
 
 <BR>
 
-#### - Data Analysis and Visualization <a name="hla6"></a>
+### - Data Analysis and Visualization <a name="hla6"></a>
 
 * In this step, descriptive statistics for sample data was generated, and the data set was visualized.
 * Generated [Box and Whisker plots](https://en.wikipedia.org/wiki/Box_plot) for the data sets.
@@ -170,38 +170,38 @@
 
 <BR><BR>
 
-#### - Data Summary <a name="hla7"></a>
+### - Data Summary <a name="hla7"></a>
 
 * From the above analysis, a summary was prepared, which was the foundation for the next step, which is coming up with a strategy for data balancing.
 
 <BR>
 
-#### - Data balancing strategy <a name="hla8"></a>
+### - Data balancing strategy <a name="hla8"></a>
 
 * In this step, the data balancing strategy was finalized. Over represented data was rejected, where as under represented data was additionally captured or synthesized.
 
 <BR>
 
-#### - Data preprocessing  <a name="hla9"></a>
+### - Data preprocessing  <a name="hla9"></a>
 
 * Data Normalization
 * Region of interest selection
 
 <BR><BR>
 
-#### - Data Loading <a name="hla10"></a>
+### - Data Loading <a name="hla10"></a>
 
 * In this step, the challenges of loading the data were resolved with a generator pattern.
 
 <BR><BR>
 
-#### - Training and evaluation <a name="hla11"></a>
+### - Training and evaluation <a name="hla11"></a>
 
 * In this step, the model training and evaluation was performed.
 
 <BR><BR>
 
-#### - Center driving and Off-center recovery practice. <a name="hla12"></a>
+### - Center driving and Off-center recovery practice. <a name="hla12"></a>
 
 * In this step, the model was trained specifically for off-center recovery.
 
@@ -209,7 +209,7 @@
 <BR><BR>
 ---
 
-###Conclusion <a name="conc"></a> :
+## Conclusion <a name="conc"></a> :
 
 * At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road. 
 * The model was trained at 9mph, however, it is able to drive itself upto 25 mph.
@@ -217,7 +217,7 @@
 <BR><BR>
 ---
 
-###Future Work and Learning <a name="fw"></a> :
+## Future Work and Learning <a name="fw"></a> :
 
 * Ensuring that the model can drive at the top speed of 30 mph. 
 
