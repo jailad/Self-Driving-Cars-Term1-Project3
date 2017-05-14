@@ -43,9 +43,9 @@
 ###Objective  <a name="objective"></a> : 
 
 * Use the [simulator](https://github.com/udacity/self-driving-car-sim) to collect data of good driving behavior. 
-* Design, train and validate a model that predicts a steering angle from image data - model.h5 .
+* Design, train and validate a model that predicts a steering angle from image data - [model.h5](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/model.h5) .
 * Use the model to drive the vehicle autonomously around the first track in the simulator. The vehicle should remain on the road for an entire loop around the track.
-* Summarize the results with a written report - writeup.md
+* Summarize the results with a written report - [writeup.md](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/writeup.md)
 
 ---
 
@@ -85,7 +85,7 @@
 
 ###A note on using GPUs for training <a name="gpu"></a> : 
 
-With regards to [Amazon P2 GPU](https://aws.amazon.com/ec2/instance-types/p2/) instances, I was able to get good results with my local workstation because of which I did not setup the Amazon P2 instances for this project, though I have used it in the past for model training. There are quite a pre-built Amazon AMIs which contain TensorFlow, Keras and related libraries installed which can be used for experimentation on Amazon. [This](https://github.com/ritchieng/tensorflow-aws-ami) is an example of such an AMI. [Here](http://course.fast.ai/lessons/aws.html) is another useful resource on how to setup AWS P2 GPU instances. 
+* With regards to [Amazon P2 GPU](https://aws.amazon.com/ec2/instance-types/p2/) instances, I was able to get good results with my local workstation because of which I did not setup the Amazon P2 instances for this project, though I have used it in the past for model training. There are quite a pre-built Amazon AMIs which contain TensorFlow, Keras and related libraries installed which can be used for experimentation on Amazon. [This](https://github.com/ritchieng/tensorflow-aws-ami) is an example of such an AMI. [Here](http://course.fast.ai/lessons/aws.html) is another useful resource on how to setup AWS P2 GPU instances. 
 <BR><BR>
 ---
 
@@ -103,19 +103,19 @@ With regards to [Amazon P2 GPU](https://aws.amazon.com/ec2/instance-types/p2/) i
 
 ###Key File(s) <a name="keyfiles"></a> :
 
-* model.ipynb - [Jupyter](http://jupyter.org/) notebook used to create and train the model.
-* drive.py - Script to drive the car.
-* model.h5 - A trained Keras model.
-* writeup.md - A report writeup file
-* video.mp4 - Video of the model.h5 driving successfully on track 1.
+* [model.ipynb](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/model.ipynb) - [Jupyter](http://jupyter.org/) notebook used to create and train the model.
+* [drive.py](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/drive.py) - Script to drive the car.
+* [model.h5](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/model.h5) - A trained Keras model.
+* [writeup.md](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/writeup.md) - A report writeup file
+* [video.mp4](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/video.mp4) - Video of the model.h5 driving successfully on track 1.
 <BR><BR>
 ---
 
 ###Other File(s) <a name="otherfiles"></a> :
 
-* Term1Project3BehaviorCloning.ipynb - the main Jupyter notebook which was used to experiment with various model architectures, and which was also used to perform data distribution analysis and balancing. This is the main 'parent' notebook which was used to complete the project, and from this, the model.ipynb was derived.
+* [Term1Project3BehaviorCloning.ipynb](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/Term1Project3BehaviorCloning.ipynb) - the main Jupyter notebook which was used to experiment with various model architectures, and which was also used to perform data distribution analysis and balancing. This is the main 'parent' notebook which was used to complete the project, and from this, the model.ipynb was derived.
 
-* SideExperiments.ipynb - another Jupyter notebook which was used to conduct small side experiments for this project.
+* [SideExperiments.ipynb](https://github.com/jailad/Self-Driving-Cars-Term1-Project3/blob/master/SideExperiments.ipynb) - another Jupyter notebook which was used to conduct small side experiments for this project.
 <BR><BR>
 ---
 
